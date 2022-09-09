@@ -1,0 +1,343 @@
+<div class="content">
+  <div class='toolbar'>
+    <div class="tools">
+      <button mat-icon-button class='main-tools' id="pencil" (click)="tool='pencil'"
+        [style]="'color:'+toolMapping['pencil']['lineColor']" [class.is-active]="tool==='pencil'">
+        <mat-icon>draw</mat-icon>
+      </button>
+      <div class="inner-bar" *ngIf="tool==='pencil'">
+        <button id="color-palatte" [style]="'color:'+toolMapping['pencil']['lineColor']">
+          <mat-icon>border_color</mat-icon>
+          <input type='color' class='color-class' [(ngModel)]="toolMapping['pencil']['lineColor']" id="favcolor"
+            name="favcolor">
+        </button>
+      </div>
+      <button mat-icon-button class='main-tools' id="circle" (click)="tool='circle'"
+        [style]="'color:'+toolMapping['circle']['lineColor']" [class.is-active]="tool==='circle'">
+        <mat-icon>radio_button_unchecked</mat-icon>
+      </button>
+      <div class="inner-bar" *ngIf="tool==='circle'">
+        <button id="color-palatte" [style]="'color:'+toolMapping['circle']['lineColor']">
+          <mat-icon>border_color</mat-icon>
+          <input type='color' class='color-class' [(ngModel)]="toolMapping['circle']['lineColor']" id="favcolor"
+            name="favcolor">
+        </button>
+      </div>
+      <button mat-icon-button class='main-tools' id="rectangle" (click)="tool='rectangle'"
+        [style]="'color:'+toolMapping['rectangle']['lineColor']" [class.is-active]="tool==='rectangle'">
+        <mat-icon>crop_5_4</mat-icon>
+      </button>
+      <div class="inner-bar" *ngIf="tool==='rectangle'">
+        <button id="color-palatte" [style]="'color:'+toolMapping['rectangle']['lineColor']">
+          <mat-icon>border_color</mat-icon>
+          <input type='color' class='color-class' [(ngModel)]="toolMapping['rectangle']['lineColor']" id="favcolor"
+            name="favcolor">
+        </button>
+      </div>
+
+      <button mat-icon-button class='main-tools' id="ellipse" (click)="tool='ellipse'"
+        [style]="'color:'+toolMapping['ellipse']['lineColor']" [class.is-active]="tool==='ellipse'">
+        <mat-icon>egg</mat-icon>
+      </button>
+      <div class="inner-bar" *ngIf="tool==='ellipse'">
+        <button id="color-palatte" [style]="'color:'+toolMapping['ellipse']['lineColor']">
+          <mat-icon>border_color</mat-icon>
+          <input type='color' class='color-class' [(ngModel)]="toolMapping['ellipse']['lineColor']" id="favcolor"
+            name="favcolor">
+        </button>
+      </div>
+      <button mat-icon-button class='main-tools' id="line" (click)="tool='line'"
+        [style]="'color:'+toolMapping['line']['lineColor']" [class.is-active]="tool==='line'">
+        <mat-icon>show_chart</mat-icon>
+      </button>
+      <div class="inner-bar" *ngIf="tool==='line'">
+        <button id="color-palatte" [style]="'color:'+toolMapping['line']['lineColor']">
+          <mat-icon>border_color</mat-icon>
+          <input type='color' class='color-class' [(ngModel)]="toolMapping['line']['lineColor']" id="favcolor"
+            name="favcolor">
+        </button>
+      </div>
+
+      <button mat-icon-button class='main-tools' id="fill" (click)="tool='fill'"
+        [style]="'color:'+toolMapping['fill']['fillColor']" [class.is-active]="tool==='fill'">
+        <mat-icon>
+          format_color_fill
+        </mat-icon>
+      </button>
+      <div class="inner-bar" *ngIf="tool==='fill'">
+        <button id="color-palatte" [style]="'color:'+toolMapping['fill']['fillColor']">
+          <mat-icon>palette</mat-icon>
+          <input type='color' class='color-class' [(ngModel)]="toolMapping['fill']['fillColor']" id="favcolor"
+            name="favcolor">
+        </button>
+      </div>
+
+      <button mat-icon-button class='main-tools' id="air" (click)="tool='air'"
+        [style]="'color:'+toolMapping['air']['fillColor']" [class.is-active]="tool==='air'">
+        <mat-icon>air</mat-icon>
+      </button>
+      <div class="inner-bar" *ngIf="tool==='air'">
+        <button id="color-palatte" [style]="'color:'+toolMapping['air']['fillColor']">
+          <mat-icon>palette</mat-icon>
+          <input type='color' class='color-class' [(ngModel)]="toolMapping['air']['fillColor']" id="favcolor"
+            name="favcolor">
+        </button>
+      </div>
+
+      <button mat-icon-button class='main-tools' id="polygon" [style]="'color:'+toolMapping['polygon']['lineColor']"
+        (click)="tool='polygon'" [class.is-active]="tool==='polygon'">
+        <mat-icon>auto_graph</mat-icon>
+      </button>
+      <div class="inner-bar" *ngIf="tool==='polygon'">
+        <button id="color-palatte" [style]="'color:'+toolMapping['polygon']['lineColor']">
+          <mat-icon>border_color</mat-icon>
+          <input type='color' class='color-class' [(ngModel)]="toolMapping['polygon']['lineColor']" id="favcolor"
+            name="favcolor">
+        </button>
+      </div>
+
+      <button mat-icon-button class='main-tools' id="arc" (click)="tool='arc'"
+        [style]="'color:'+toolMapping['arc']['lineColor']+';'" [class.is-active]="tool==='arc'">
+        <mat-icon>nightlight_round</mat-icon>
+      </button>
+      <div class="inner-bar" *ngIf="tool==='arc'">
+        <button id="color-palatte" [style]="'color:'+toolMapping['arc']['lineColor']">
+          <mat-icon>border_color</mat-icon>
+          <input type='color' class='color-class' [(ngModel)]="toolMapping['arc']['lineColor']" id="favcolor"
+            name="favcolor">
+        </button>
+      </div>
+      <button mat-icon-button class='main-tools' id="eraser" (click)="tool='eraser'"
+        [class.is-lone-active]="tool==='eraser'">
+        <mat-icon>how_to_vote</mat-icon>
+      </button>
+    </div>
+    <div class="tools d-none">
+      <button mat-icon-button class='main-tools' id="selection">
+        <mat-icon>
+          highlight_alt
+        </mat-icon>
+      </button>
+      <button mat-icon-button class='main-tools' id="zoom-in" (click)="zoomin()">
+        <mat-icon>
+          zoom_in
+        </mat-icon>
+      </button>
+      <button mat-icon-button class='main-tools' id="zoom-out" (click)="zoomout()">
+        <mat-icon>
+          zoom_out
+        </mat-icon>
+      </button>
+      <button mat-icon-button class='main-tools' id="zoom-fit" (click)="zoomfit()">
+        <mat-icon>
+          fit_screen
+        </mat-icon>
+      </button>
+      <button mat-icon-button class='main-tools' id="text" (click)="tool='text'">
+        <mat-icon>
+          title
+        </mat-icon>
+      </button>
+      <div class="inner-bar" *ngIf="tool==='text'">
+        <button id="text-size">
+          <mat-icon>format_size</mat-icon>
+        </button>
+        <button id="font">
+          <mat-icon>font_download</mat-icon>
+        </button>
+        <button id="color-palatte">
+          <mat-icon>palette</mat-icon>
+        </button>
+      </div>
+      <button mat-icon-button class='main-tools' id="emoji">
+        <mat-icon>
+          emoji_symbols
+        </mat-icon>
+      </button>
+      <button mat-icon-button class='main-tools' id="image" (click)="tool='image'">
+        <mat-icon>
+          image
+        </mat-icon>
+      </button>
+      <div class="inner-bar" *ngIf="tool==='image'">
+        <button id="link">
+          <mat-icon>add_link</mat-icon>
+        </button>
+        <button id="upload">
+          <mat-icon>upload_file</mat-icon>
+        </button>
+        <button mat-icon-button class='main-tools' id="camera">
+          <mat-icon>
+            add_a_photo
+          </mat-icon>
+        </button>
+      </div>
+    </div>
+
+    <div class="tools">
+      <button mat-icon-button class='main-tools' color="warn" id="reset" (click)="resetPage()">
+        <mat-icon>
+          delete_sweep
+        </mat-icon>
+      </button>
+      <button mat-icon-button class='main-tools' id="undo">
+        <mat-icon>
+          undo
+        </mat-icon>
+      </button>
+      <button mat-icon-button class='main-tools' id="redo">
+        <mat-icon>
+          redo
+        </mat-icon>
+      </button>
+      <button mat-icon-button class='main-tools' id="id_download" (click)="save()">
+        <mat-icon>
+          download
+        </mat-icon>
+      </button>
+      <button mat-icon-button class='main-tools' id="copy">
+        <mat-icon>
+          content_copy
+        </mat-icon>
+      </button>
+      <button mat-icon-button class='main-tools' id="paste">
+        <mat-icon>
+          content_paste
+        </mat-icon>
+      </button>
+      <button mat-icon-button class='main-tools' id="paste">
+        <mat-icon>
+          content_cut
+        </mat-icon>
+      </button>
+    </div>
+  </div>
+  <div id="color-panel" class="d-flex">
+    <div class="d-flex flex-column btn-group">
+      <button (click)="getColor($event)" class="btn" type="button" data-color="#ffffff" title="White"
+        style="background-color:white">
+      </button>
+      <button (click)="getColor($event)" class="btn" type="button" data-color="#000000" title="Black"
+        style="background-color:black">
+      </button>
+    </div>
+    <div class="d-flex flex-column btn-group ">
+      <button (click)="getColor($event)" class="btn" type="button" data-color="#ff0000" title="Red"
+        style="background-color:red">
+      </button>
+      <button (click)="getColor($event)" class="btn" type="button" data-color="#800000" title="Dark Red"
+        style="background-color:#800000">
+      </button>
+    </div>
+    <div class="d-flex flex-column btn-group ">
+      <button (click)="getColor($event)" class="btn" type="button" data-color="#00ff00" title="Green"
+        style="background-color:lime">
+      </button>
+      <button (click)="getColor($event)" class="btn" type="button" data-color="#008080" title="Dark Green"
+        style="background-color:#008000">
+      </button>
+    </div>
+    <div class="d-flex flex-column btn-group ">
+      <button (click)="getColor($event)" class="btn" type="button" data-color="#0000ff" title="Blue"
+        style="background-color:blue">
+      </button>
+      <button (click)="getColor($event)" class="btn" type="button" data-color="#000080" title="Dark Blue"
+        style="background-color:#000080">
+      </button>
+    </div>
+    <div class="d-flex flex-column btn-group ">
+      <button (click)="getColor($event)" class="btn" type="button" data-color="#ff00ff" title="Magenta"
+        style="background-color:magenta">
+      </button>
+      <button (click)="getColor($event)" class="btn" type="button" data-color="#800080" title="Purple"
+        style="background-color:purple">
+      </button>
+    </div>
+    <div class="d-flex flex-column btn-group ">
+      <button (click)="getColor($event)" class="btn" type="button" title="Yellow" data-color="#ffff00"
+        style="background-color:yellow">
+      </button>
+      <button (click)="getColor($event)" class="btn" type="button" title="Dark Yellow" data-color="#808000"
+        style="background-color:#808000">
+      </button>
+    </div>
+    <div class="d-flex flex-column btn-group ">
+      <button (click)="getColor($event)" class="btn" type="button" data-color="#00ffff" title="Cyan"
+        style="background-color:#00ffff">
+      </button>
+      <button (click)="getColor($event)" class="btn" type="button" data-color="#008080" title="Dark Cyan"
+        style="background-color:#008080">
+      </button>
+    </div>
+    <div class="d-flex flex-column btn-group ">
+      <button (click)="getColor($event)" class="btn" type="button" title="Chocolate" data-color="#bd8260"
+        style="background-color:#BD8260">
+      </button>
+      <button (click)="getColor($event)" class="btn" type="button" title="Brown" data-color="#a52a2a"
+        style="background-color:brown">
+      </button>
+    </div>
+    <div class="d-flex flex-column btn-group ">
+      <button (click)="getColor($event)" class="btn" type="button" title="Lavender" data-color="#e6e6fa"
+        style="background-color:lavender">
+      </button>
+      <button (click)="getColor($event)" class="btn" type="button" title="Gray" data-color="#808080"
+        style="background-color:gray">
+      </button>
+    </div>
+    <div class="d-flex flex-column btn-group ">
+      <button (click)="getColor($event)" class="btn" type="button" title="Orange" data-color="#ffa500"
+        style="background-color:orange">
+      </button>
+      <button (click)="getColor($event)" class="btn" type="button" title="Eucalyptus" data-color="#44D7A8"
+        style="background-color:#44D7A8">
+      </button>
+    </div>
+    <div class='opacity-slider mx-3' title='Opacity'>
+      <mat-icon [style]="'opacity:'+opacity">opacity</mat-icon>
+      <mat-slider thumbLabel [(ngModel)]="opacity" [displayWith]="formatLabel" tickInterval="0.1" step="0.1" min="0"
+        max="1" aria-label="units">
+      </mat-slider>
+      <span class='m-3'>{{opacity}}</span>
+    </div>
+    <div class='opacity-slider mx-3' title='Density' *ngIf="tool==='air'">
+      <mat-icon [style]="'color:'+this.toolMapping[this.tool]['fillColor'] || '#000000'">grain</mat-icon>
+      <mat-slider thumbLabel [(ngModel)]="density" [displayWith]="formatLabel" tickInterval="5" step="5" min="5"
+        max="150" aria-label="units">
+      </mat-slider>
+      <span class='m-3'>{{density}}</span>
+    </div>
+    <div class='opacity-slider weight-slider mx-3' title='Line Width'>
+      <mat-icon>line_weight</mat-icon>
+      <mat-slider thumbLabel [(ngModel)]="lineWidth" [displayWith]="formatWeight" tickInterval="1" step="1" min="0"
+        max="100" aria-label="units">
+      </mat-slider>
+      <span class='m-3'>{{lineWidth}}</span>
+    </div>
+    <div class='opacity-slider weight-slider mx-3'>
+      <mat-icon>line_style</mat-icon>
+      <div class='mx-3'>
+        <mat-button-toggle-group [(ngModel)]="lineStyle" aria-label="Font Style">
+          <mat-button-toggle value="solid" title='Solid Line'>
+            <span class='w-100' [style]="'border-top:solid 4px '+this.toolMapping[this.tool]['lineColor'] || '#000000'">
+              Solid
+            </span></mat-button-toggle>
+          <mat-button-toggle value="dotted" title='Dotted Line'>
+            <span class='w-100' [style]="'border-top:dotted 4px '+this.toolMapping[this.tool]['lineColor'] || '#000000'">
+              Dotted
+            </span>
+          </mat-button-toggle>
+          <mat-button-toggle value="dashed" title='Dashed Line'>
+            <span class='w-100' [style]="'border-top:dashed 4px '+this.toolMapping[this.tool]['lineColor'] || '#000000'">
+              Dashed
+            </span>
+          </mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <span class='mr-2' [style]="'width:90px;border-top:'+lineStyle+' 4px '+this.toolMapping[this.tool]['lineColor'] || '#000000'"></span>
+    </div>
+  </div>
+  <div id="canvas-wrapper" class="paint-div">
+    <canvas id="canvas" class='paint-canvas'></canvas>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+.tools {
+  display: flex;
+  flex-flow: row;
+  flex-direction: row;
+  z-index: 5;
+  font-size: 24px;
+  margin: 5px;
+}
+
+.main-tools {
+  background-color: white;
+  outline: 0;
+  border: 0;
+
+  &:focus {
+    outline: 0;
+    border: 0;
+  }
+
+  mat-icon {
+    font-size: 30px;
+  }
+}
+
+.is-active {
+  height: 48px;
+  width: 48px;
+  background-color: beige;
+  border-radius: 0 4px 4px 0;
+}
+
+.is-lone-active {
+  height: 48px;
+  width: 48px;
+  border-radius: 4px 0 0 4px;
+  background-color: beige;
+}
+
+.btn-group {
+  button {
+    margin: 1px;
+  }
+}
+
+.color-class {
+  opacity: 0;
+  position: absolute;
+  z-index: 4;
+  width: 30px;
+  margin-left: -30px;
+}
+
+.inner-bar {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  background-color: beige;
+
+  button {
+    border: 0;
+    background-color: transparent;
+    outline: 0;
+  }
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.paint-canvas {
+  border: 1px solid black;
+  background-color: white;
+
+  canvas: {
+    display: block;
+  }
+}
+
+.paint-div {
+  background-color: silver;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.opacity-slider {
+  z-index: 5;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.weight-slider {
+  mat-slider {
+    width: 300px;
+  }
+}
